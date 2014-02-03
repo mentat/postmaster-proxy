@@ -32,7 +32,6 @@ handlers:
 
 - url: /.*
   script: core.main.app
-  login: required
 
 
 skip_files:
