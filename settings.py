@@ -27,7 +27,7 @@ logging.getLogger('suds.binding.marshaller').setLevel(logging.INFO)
 logging.getLogger('suds.metrics').setLevel(logging.INFO)
 
 # Secret key that must be in X-PM-Auth header of all incoming requests.
-SECRET_KEY = 'blah'
+SECRET_KEY = 'Ed3S,Do0K2~_vtGZ(3u5E|Q!yTnpBCGr_L#fR}qy2qLj[<Se.4X:)|6xOu?cOuZ]'
 
 # Carriers credentials
 CARRIERS_TEST = {
