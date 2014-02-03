@@ -5,8 +5,6 @@ from webapp2_extras import jinja2
 from webapp2 import RequestHandler
 import webapp2
 
-import settings
-
 
 class BaseHandler(RequestHandler):
     @property
@@ -46,8 +44,3 @@ class BaseHandler(RequestHandler):
             variables.update(context)
         rv = self.jinja2.render_template(_template, **variables)
         self.response.write(rv)
-
-    @webapp2.cached_property
-    def authenticated_user(self):
-        auth = self.request.headers.get('X-PM-Auth', '')
-        return auth == settings.SECRET_KEY
