@@ -7,6 +7,8 @@ from google.appengine.datastore import datastore_stub_util
 from google.appengine.api.search import simple_search_stub
 from webapp2 import Request
 
+import settings
+
 
 __all__ = [
     'CloudTestCase'
@@ -54,3 +56,9 @@ class CloudTestCase(unittest.TestCase):
     def tearDown(self):
         self.testbed.deactivate()
         del os.environ['DEFAULT_VERSION_HOSTNAME']
+
+    def auth_get(self, *args, **kwargs):
+        if not 'headers' in kwargs:
+            kwargs['headers'] = {}
+        kwargs['headers']['X-PM-Auth'] = settings.SECRET_KEY
+        return self.app.get(*args, **kwargs)

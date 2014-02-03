@@ -101,7 +101,6 @@ class StampsTestCase(CloudTestCase):
 
     @patch('lib.shipper.stamps.StampsService')
     def test_sample_request_error_other(self, m_s):
-        from lib.shipper.stamps import ExpiredAuthenticatorError
         from lib.stamps.services import StampsError
         obj = CachedValues.get_master()
         obj.stamps_authenticator = 'abcde'

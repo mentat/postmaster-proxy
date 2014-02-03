@@ -22,7 +22,7 @@ def refresh_stamps_authenticator():
         obj.stamps_last_refresh + delta
         if obj.stamps_last_refresh else datetime.now() + delta
     )
-    if cooldown < datetime.now():
+    if cooldown > datetime.now():
         return
     obj.stamps_last_refresh = datetime.now()
     # It will be cached in memcache anyway
