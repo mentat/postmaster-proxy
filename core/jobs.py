@@ -43,7 +43,8 @@ def refresh_stamps_authenticator():
 
 def check_stamps_authenticator():
     """
-    Checks whether current Stamps authenticators are 
+    Checks whether current Stamps authenticators are valid.
+    In case any of them is found invalid, both of them are refreshed.
     """
     try:
         # First, production.

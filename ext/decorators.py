@@ -4,6 +4,10 @@ import settings
 
 
 def auth_required(handler):
+    """
+    Checks for X-PM-Auth header in incoming request, and compares it to the
+    value stored in settings.
+    """
     def wrapped(self, *args, **kwargs):
         try:
             token = self.request.headers.get('X-PM-Auth', '')

@@ -11,4 +11,8 @@ class CachedValues(ndb.Model):
 
     @classmethod
     def get_master(cls):
+        """
+        Gets the singleton entity.
+        Use this method instead of normal get()/query().
+        """
         return cls.get_or_insert('master', namespace='')

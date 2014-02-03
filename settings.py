@@ -29,6 +29,7 @@ logging.getLogger('suds.metrics').setLevel(logging.INFO)
 # Secret key that must be in X-PM-Auth header of all incoming requests.
 SECRET_KEY = 'blah'
 
+# Carriers credentials
 CARRIERS_TEST = {
     'stamps': {
         'integration_id': '33fb4597-0228-424c-9b33-9611d6949901',
@@ -44,4 +45,5 @@ CARRIERS_LIVE = {
     },
 }
 
+# How often allow for refreshing authenticators?
 STAMPS_REFRESH_COOLDOWN = 5 * 60 # 5 minutes

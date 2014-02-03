@@ -11,6 +11,11 @@ class ExpiredAuthenticatorError(Exception):
 
 
 class Stamps(object):
+    """
+    Light, fat-free Stamps implementation.
+
+    Has ability to refresh authenticator and to make sample request.
+    """
     ERROR_CODES = (
         '002B0202', # Expired authenticator
         '002B0203', # Invalid conversation token
@@ -33,6 +38,10 @@ class Stamps(object):
         self.service = StampsService(self.config)
 
     def sample_request(self):
+        """
+        Sends sample Stamps request (using GetSupportedCountries method)
+        to validate current authenticator.
+        """
         obj = CachedValues.get_master()
         authenticator = (
             obj.stamps_authenticator_testing
@@ -51,7 +60,7 @@ class Stamps(object):
 
     def refresh_authenticator(self):
         """
-        Used by cron job. Returns new Stamps authenticator.
+        Returns new Stamps authenticator.
         """
         credentials = self.service.create('Credentials')
         credentials.IntegrationID = self.config.integration_id

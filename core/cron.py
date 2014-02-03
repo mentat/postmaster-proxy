@@ -8,7 +8,7 @@ from core.jobs import refresh_stamps_authenticator
 
 class RefreshStampsAuthenticator(BaseHandler):
     """
-    Periodically refreshes Stamps authenticator.
+    Periodically and forcefully refreshes Stamps authenticator.
     """
     def get(self):
         refresh_stamps_authenticator()
