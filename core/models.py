@@ -7,6 +7,7 @@ class CachedValues(ndb.Model):
     """
     stamps_authenticator = ndb.StringProperty(indexed=False)
     stamps_authenticator_testing = ndb.StringProperty(indexed=False)
+    stamps_last_refresh = ndb.DateTimeProperty()
 
     @classmethod
     def get_master(cls):

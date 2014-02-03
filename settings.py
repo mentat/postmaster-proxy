@@ -43,3 +43,5 @@ CARRIERS_LIVE = {
         'password': 'postmaster411',
     },
 }
+
+STAMPS_REFRESH_COOLDOWN = 5 * 60 # 5 minutes

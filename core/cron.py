@@ -1,5 +1,3 @@
-from google.appengine.ext import deferred
-
 from webapp2 import Route, WSGIApplication
 
 from ext.handlers import BaseHandler
@@ -13,7 +11,7 @@ class RefreshStampsAuthenticator(BaseHandler):
     Periodically refreshes Stamps authenticator.
     """
     def get(self):
-        deferred.defer(refresh_stamps_authenticator)
+        refresh_stamps_authenticator()
 
 
 app = WSGIApplication([
