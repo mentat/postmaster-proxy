@@ -3,6 +3,11 @@ import logging
 import settings
 
 
+__all__ = [
+    'auth_required'
+]
+
+
 def auth_required(handler):
     """
     Checks for X-PM-Auth header in incoming request, and compares it to the
