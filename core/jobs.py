@@ -18,13 +18,14 @@ def refresh_stamps_authenticator():
     obj = CachedValues.get_master()
     # First, check whether last refresh didn't happen recently
     delta = timedelta(seconds=settings.STAMPS_REFRESH_COOLDOWN)
+    now = datetime.now()
     cooldown = (
         obj.stamps_last_refresh + delta
-        if obj.stamps_last_refresh else datetime.now() + delta
+        if obj.stamps_last_refresh else now
     )
-    if cooldown > datetime.now():
+    if cooldown > now:
         return
-    obj.stamps_last_refresh = datetime.now()
+    obj.stamps_last_refresh = now
     # It will be cached in memcache anyway
     obj.put()
     # Production
