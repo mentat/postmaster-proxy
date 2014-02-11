@@ -39,8 +39,8 @@ class Stamps(object):
 
     def sample_request(self):
         """
-        Sends sample Stamps request (using GetSupportedCountries method)
-        to validate current authenticator.
+        Sends sample Stamps request (using EnumCostCodes method) to validate
+        current authenticator.
         """
         obj = CachedValues.get_master()
         authenticator = (
@@ -49,7 +49,7 @@ class Stamps(object):
         )
         try:
             self.service.call(
-                'GetSupportedCountries',
+                'EnumCostCodes',
                 Authenticator=authenticator,
             )
         except StampsError as e:
