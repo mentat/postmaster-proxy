@@ -70,7 +70,7 @@ class StampsTestCase(CloudTestCase):
         stamps = Stamps(testing=False)
         stamps.sample_request()
         m_s().call.assert_called_with(
-            'GetSupportedCountries', Authenticator='abcde'
+            'EnumCostCodes', Authenticator='abcde'
         )
 
     @patch('lib.shipper.stamps.StampsService')
@@ -82,7 +82,7 @@ class StampsTestCase(CloudTestCase):
         stamps = Stamps(testing=True)
         stamps.sample_request()
         m_s().call.assert_called_with(
-            'GetSupportedCountries', Authenticator='ghijk'
+            'EnumCostCodes', Authenticator='ghijk'
         )
 
     @patch('lib.shipper.stamps.StampsService')
