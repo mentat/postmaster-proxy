@@ -17,6 +17,7 @@ class Stamps(object):
     Has ability to refresh authenticator and to make sample request.
     """
     ERROR_CODES = (
+        '002B0201', # Invalid authenticator
         '002B0202', # Expired authenticator
         '002B0203', # Invalid conversation token
         '002B0204', # Conversation out of sync

@@ -48,13 +48,13 @@ def check_stamps_authenticator():
     In case any of them is found invalid, both of them are refreshed.
     """
     try:
-        # First, production.
-        logging.info('Checking Stamps production authenticator.')
-        stamps = Stamps(testing=False)
-        stamps.sample_request()
-        # Then, testing!
+        # First, testing.
         logging.info('Checking Stamps testing authenticator.')
         stamps = Stamps(testing=True)
+        stamps.sample_request()
+        # Then, production!
+        logging.info('Checking Stamps production authenticator.')
+        stamps = Stamps(testing=False)
         stamps.sample_request()
     except ExpiredAuthenticatorError:
         # Uh oh! Better try to refresh now!
