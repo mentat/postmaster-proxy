@@ -35,15 +35,15 @@ class StampsConfiguration(object):
 
         if testing:
             logging.info('Using test server')
-            file_name = "stamps_v34.test.wsdl"
+            file_name = "stamps_v35.test.wsdl"
         else:
             logging.info('Using production server')
-            file_name = "stamps_v34.wsdl"
+            file_name = "stamps_v35.wsdl"
 
         wsdl = os.path.join(directory_path, "wsdls", file_name)
         self.wsdl = "file://{0}".format(wsdl)
 
-        self.port = "SwsimV34Soap12"
+        self.port = "SwsimV35Soap12"
 
         assert self.integration_id
         assert self.username
